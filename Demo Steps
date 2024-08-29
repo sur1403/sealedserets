@@ -20,6 +20,9 @@ kubectl get secret
 cat mysealedsecret.json
 
 Demo2
+echo -n sealedpassword | kubectl create secret generic mysecret --dry-run=client --from-file=foo=/dev/stdin -o json >mysealedsecret.json
+kubeseal -f mysealedsecret.json -w mysealedsecret1.json
+
 git clone https://github.com/sur1403/sealedserets.git
 cd sealedserets/
 kubectl apply -f deploy.yaml 

@@ -74,3 +74,6 @@ spec:
   selector:
     app.kubernetes.io/name: sealed-secrets-ui
   type: ClusterIP
+
+kubectl port-forward -n kube-system svc/sealed-secrets-ui 8080:8080 --address 0.0.0.0
+

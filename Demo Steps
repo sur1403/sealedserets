@@ -35,6 +35,3 @@ kubectl get pods
 kubectl exec -it sealed-secretapp-56f869f588-zttnp -- sh
 
 
-
-
-

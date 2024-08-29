@@ -4,7 +4,11 @@ Only helm repo needs to installed
 helm repo add sealed-secrets https://bitnami-labs.github.io/sealed-secrets
 helm install sealed-secrets -n kube-system --set-string fullnameOverride=sealed-secrets-controller sealed-secrets/sealed-secrets
 
+kubectl apply -f deploy1.yaml
+#here, deploy wont start as it doesn't have secret
 
+
+#Now, Deploy Kubeseal UI
 deploy.yaml
 
 apiVersion: apps/v1
@@ -77,3 +81,5 @@ spec:
 
 kubectl port-forward -n kube-system svc/sealed-secrets-ui 8080:8080 --address 0.0.0.0
 
+
+#Copy this secret in secret.yaml and kubectl apply -f secret.yaml

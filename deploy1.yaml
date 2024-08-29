@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sealed-secretapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sealed-secretapp
+  template:
+    metadata:
+      labels:
+        app: sealed-secretapp
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:latest
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: my-secret1
+              key: password
+        ports:
+        - containerPort: 3306

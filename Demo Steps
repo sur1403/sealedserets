@@ -15,9 +15,9 @@ kubectl get secrets -oyaml
 echo "c3VyYmhp" | base64 -d
 echo -n bar | kubectl create secret generic mysecret --dry-run=client --from-file=foo=/dev/stdin -o json >mysecret.json
 kubeseal -f mysecret.json -w mysealedsecretdemo_1.json
-kubectl create -f mysealedsecret.json
+kubectl create -f mysealedsecretdemo_1.json
 kubectl get secret
-cat mysealedsecret.json
+cat mysealedsecretdemo_1.json
 
 Demo2
 echo -n sealedpassword | kubectl create secret generic mysecret --dry-run=client --from-file=password=/dev/stdin -o json >mysealedsecret.json

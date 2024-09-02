@@ -1,5 +1,5 @@
 wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.27.1/kubeseal-0.27.1-linux-amd64.tar.gz
-tar -xvf kubeseal
+tar -xvf kubeseal-0.27.1-linux-amd64.tar.gz
 chmod +x kubeseal
 mv kubeseal /usr/local/bin
 
